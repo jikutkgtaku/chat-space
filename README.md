@@ -1,5 +1,3 @@
-# README
-
 # chatspace DB設計
 ## usersテーブル
 |Column|Type|Options|
