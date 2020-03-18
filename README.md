@@ -4,7 +4,7 @@
 |------|----|-------|
 |email|string|null: false|
 |password|string|null: false, unique: true|
-|user|string|null: false, unique: true, index: true|
+|name|string|null: false, unique: true, index: true|
 
 ### Association
 - has_many :messages
