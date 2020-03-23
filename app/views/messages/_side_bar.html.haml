@@ -2,11 +2,11 @@
   .user-box
     .user-box__top-items
       .user-box__top-items__name 
-        masa
+        = current_user.name
         .user-box__top-items__name__icons
           .icon--edit
-            = link_to "#", class: "icons__btn" do
-              = icon('far', 'edit')
+            = link_to edit_user_path(current_user) do
+              = icon('far', 'edit', class: 'icons__btn')
           .icon--cod
             = link_to "#", class: "icons__btn" do
               = icon('fas', 'cog')
