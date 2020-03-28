@@ -5,14 +5,16 @@
         = current_user.name
         .user-box__top-items__name__icons
           .icon--edit
-            = link_to edit_user_path(current_user) do
+            = link_to new_group_path do
               = icon('far', 'edit', class: 'icons__btn')
           .icon--cod
-            = link_to "#", class: "icons__btn" do
-              = icon('fas', 'cog')
+            = link_to edit_user_path(current_user) do
+              = icon('fas', 'cog', class: 'icons__btn')
   .group-list
-    .group-list__group
-      .group-list__group-name
-        techcamp
-      .group-list__group-message
-        メッセージあると思った？ないんだなそれがｗ
+    - current_user.groups.each do |group|
+      .group
+        = link_to '#' do
+          .group-list__group-name
+            = group.name
+          .group-list__group-message
+            メッセージあると思った？ないんだなそれがｗ
