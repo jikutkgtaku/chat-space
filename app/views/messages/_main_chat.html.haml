@@ -2,28 +2,25 @@
   .group-info
     .group-info__details
       .group__name
-        test
+        = @group.name
       .group__members
-        Member : masa
+        %ul.member
+          Member :
+          - @group.users.each do |user|
+            = user.name
     .group-info__Edit
-      = link_to "#", class: "edit--btn" do
+      = link_to edit_group_path(@group), class: "edit--btn" do
         Edit
   .messages
-    .messages__details
-      .messages__details__upper
-        .messages__details__upper__contributor
-          masa
-        .messages__details__upper__date
-          2020/03/21(Sat) 19:00:00
-      .messages__details__text
-        おはよう！
+    = render @messages
 
   .message-form
-    .message-form--input-box
-      %input.message-form--input-box-text{:placeholder => "type a message", :type => "text"}
-        %label{class: "image__btn"}
-          = icon('far', 'image')
-          %input{type: "file", class: "image__btn--image"}
-    %input.message-form--submit-btn{:type => "submit", :value => "Send"}
-
-
+    = form_for [@group, @message] do |f|
+      .input-box
+        = f.text_field :content, class: 'input-box-text', placeholder: 'type a message'
+        .image__btn
+          = f.label :image, class: 'image__btn--image' do
+            = icon('far', 'image', class: 'icon')
+            = f.file_field :image, class: 'hidden'
+      .submit
+        = f.submit 'Send', class: 'submit-btn'
