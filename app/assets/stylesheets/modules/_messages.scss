@@ -116,7 +116,6 @@
     padding: 46px 40px;
     overflow: scroll;
     &__details {
-      height: 65px;
       margin-bottom: 40px;
       &__upper {
         display: flex;
@@ -135,6 +134,11 @@
         font-size: 14px;
         color: #434A54;
         margin-top: 12px;
+        &__image {
+          width: 200px;
+          height: 200px;
+          object-fit: contain;
+        }
       }
     }
   }
